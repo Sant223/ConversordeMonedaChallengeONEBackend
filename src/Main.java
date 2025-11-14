@@ -44,10 +44,18 @@ public class Main {
                         throw new IllegalArgumentException("Error debe ser un numero del 1 al 7");
                 }
 
-                System.out.println("Escribe el monto a convertir");
+                System.out.print("""
+                        *******************************
+                        Escribe el monto a convertir:
+                        *******************************
+                        """);
                 monto = entrada.nextDouble();
 
-                System.out.println("La conversion de " + (int) monto + conversion.getMonedaInicial() + " a " + conversion.getMonedaFinal() + " es igual a:" + (int) conversion.convertir(monto) + conversion.getMonedaFinal());
+                System.out.println("""
+                        **********************************************************************************************************
+                        La conversion de  %.2f %s a %s es igual a: %.2f %s
+                        **********************************************************************************************************
+                        """.formatted(monto, conversion.getMonedaInicial(),conversion.getMonedaFinal(),conversion.convertir(monto), conversion.getMonedaFinal()));
             } catch(IllegalArgumentException e){
                 System.out.println(e.getMessage());
             } catch(InputMismatchException e){
